@@ -6,6 +6,9 @@
   .flex-center {
     @apply flex items-center;
   }
+  .inline-flex-center {
+    @apply inline-flex items-center;
+  }
   .flex-start {
     @apply flex items-start;
   }
@@ -14,6 +17,9 @@
   }
   .flex-center-center {
     @apply flex items-center justify-center;
+  }
+  .inline-flex-center-center {
+    @apply inline-flex items-center justify-center;
   }
   .grid-12 {
     @apply grid grid-cols-12 gap-6;
