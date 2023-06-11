@@ -8,7 +8,7 @@
           <icon-base name="select_arrowe" />
         </div>
         <div class="header__call-center inline-flex items-center gap-2">
-          <a href="tel:/+998712343920">+998 (71) 234 39 20</a>
+          <a href="tel:+998712343920">+998 (71) 234 39 20</a>
           <span></span>
           <span>O‘zbekiston hududida qo‘ng‘iroq bepul</span>
         </div>
@@ -85,9 +85,11 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  position: relative;
   background: rgba(36, 46, 52, 0.64);
   backdrop-filter: blur(4px);
   padding: 8px 0;
+  z-index: 2;
 
   // header__lang
   &__lang {

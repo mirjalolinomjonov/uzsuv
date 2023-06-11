@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav bg-gray-300">
+  <nav class="nav">
     <ul class="nav-list container flex-center-between">
       <div class="flex-center gap-6">
         <icon-base class="cursor-pointer mr-2" name="nav_drop" />
@@ -7,26 +7,20 @@
 
         <li class="nav-list__item" v-for="item in 6" :key="item">
           <router-link
-            class="nav-list__item-link font-medium text-sm leading-[17px] uppercase text-white inline-block py-7"
-            to="#"
-          >
+            class="nav-list__item-link font-medium text-sm leading-[17px] uppercase text-white inline-block py-7" to="#">
             jamiyat haqida
           </router-link>
 
           <ul class="dropdown-list">
             <li class="dropdown-list__item">
-              <router-link class="dropdown-list__item-link" v-for="item in 5" :key="item" to="#"
-                >Lorem, ipsum dolor.</router-link
-              >
+              <router-link class="dropdown-list__item-link" v-for="item in 5" :key="item" to="#">Lorem, ipsum
+                dolor.</router-link>
             </li>
           </ul>
         </li>
       </div>
-      <icon-base
-        @click="hasShowSearchBar = !hasShowSearchBar"
-        class="cursor-pointer"
-        :name="hasShowSearchBar ? 'close_x' : 'search'"
-      />
+      <icon-base @click="hasShowSearchBar = !hasShowSearchBar" class="cursor-pointer"
+        :name="hasShowSearchBar ? 'close_x' : 'search'" />
     </ul>
     <div class="nav__search-bar grid place-content-center" :class="{ active: hasShowSearchBar }">
       <label>
@@ -55,16 +49,18 @@ export default {
 .nav {
   position: relative;
   background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(2px);
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
-  z-index: 1;
+  backdrop-filter: blur(2px);
+  z-index: 2;
 
   // nav-list
   &-list {
+
     &:hover &__item-link,
     &:hover .icon {
       opacity: 0.6;
     }
+
     & &__item-link:hover,
     & .icon:hover {
       opacity: 1;
@@ -73,18 +69,21 @@ export default {
     // nav-list__item
     &__item {
       position: relative;
+
       &:hover .dropdown-list {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
         z-index: 1;
       }
+
       // nav-list__item-link
       &-link {
         transition: color 0.2s ease-in-out;
       }
     }
   }
+
   .dropdown-list {
     position: absolute;
     left: 0;
@@ -112,11 +111,13 @@ export default {
       transition: all 0.25s ease-in-out;
       cursor: pointer;
       z-index: 3;
+
       &:hover {
         background-color: #eeeff1;
       }
     }
   }
+
   // nav__search-bar
   &__search-bar {
     position: absolute;
@@ -130,9 +131,10 @@ export default {
     z-index: -1;
     opacity: 0;
     visibility: hidden;
+
     &.active {
       transform: translateY(0);
-      z-index: 0;
+      z-index: 1;
       opacity: 1;
       visibility: visible;
     }
@@ -145,6 +147,7 @@ export default {
       background: rgba(255, 255, 255, 0.08);
       border-radius: 4px;
       overflow: hidden;
+
       input {
         width: 100%;
         background: transparent;
@@ -154,15 +157,16 @@ export default {
         line-height: 22px;
         color: #ffffff;
         outline: none;
+
         &::placeholder {
           color: #ffffff;
         }
       }
+
       .icon {
         margin-right: 20px;
         cursor: pointer;
       }
     }
   }
-}
-</style>
+}</style>
