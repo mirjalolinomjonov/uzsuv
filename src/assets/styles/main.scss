@@ -11,6 +11,11 @@ body {
   font-family: sans-serif;
 }
 
+button,
+input {
+  outline: none;
+}
+
 .container {
   max-width: 1200px;
   margin: 0px auto;
