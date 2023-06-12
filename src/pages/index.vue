@@ -62,10 +62,16 @@
     </section>
 
     <!-- DOWNLOAD APP -->
-    <section class="relative py-[52px] bg-[#305ab6b3]">
+    <section class="relative py-[52px] mt-[108px] bg-[#305ab6b3]">
       <download-app />
-      <img class="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 h-[399px]" src="../static/img/vector_opacity.png" alt="">
+      <img
+        class="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 h-[399px]"
+        src="../static/img/vector_opacity.png"
+        alt=""
+      />
     </section>
+
+    <useful-links />
   </main>
 </template>
 
@@ -82,9 +88,7 @@ import Map from '../components/Map.vue'
 import RegionTab from '../components/RegionTab.vue'
 import Questionnaire from '../components/Questionnaire.vue'
 import DownloadApp from '../components/DownloadApp.vue'
-
-
-
+import UsefulLinks from '../components/common/UsefulLinks.vue'
 
 export default defineComponent({
   components: {
@@ -99,8 +103,9 @@ export default defineComponent({
     Map,
     RegionTab,
     Questionnaire,
-    DownloadApp
-  },
+    DownloadApp,
+    UsefulLinks
+  }
 })
 </script>
 
@@ -125,7 +130,6 @@ export default defineComponent({
   }
 }
 
-
 .main-slider {
   width: 100%;
   min-height: 100vh;
@@ -143,7 +147,8 @@ export default defineComponent({
   background: url('https://picsum.photos/3600/1280') center no-repeat;
 
   // main-slider__item
-  &__item {}
+  &__item {
+  }
 }
 
 .latest-news {
