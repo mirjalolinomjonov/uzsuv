@@ -24,16 +24,18 @@
         class="costum-carousel"
       >
         <Slide v-for="slide in 10" :key="slide">
-          <div class="carousel__item">
-            <icon-base name="emblem_of_uzb" />
-            <a
-              href="#"
-              class="block text-[#3C73E0] text-[15px] leading-[18px] font-medium mt-[13px] mb-4"
-              >president.uz</a
-            >
-            <p class="text-[#5B7293] text-[15px] leading-[18px] font-medium">
-              O‘zbekiston respublikasi Prezidentining matbuot xizmati
-            </p>
+          <div class="mx-[12px]">
+            <div class="carousel__item">
+              <icon-base name="emblem_of_uzb" />
+              <a
+                href="#"
+                class="block text-[#3C73E0] text-[15px] leading-[18px] font-medium mt-[13px] mb-4"
+                >president.uz</a
+              >
+              <p class="text-[#5B7293] text-[15px] leading-[18px] font-medium">
+                O‘zbekiston respublikasi Prezidentining matbuot xizmati
+              </p>
+            </div>
           </div>
         </Slide>
       </Carousel>
@@ -74,11 +76,6 @@ export default defineComponent({
   &:hover svg path {
     opacity: 1;
   }
-}
-
-.costum-carousel .carousel__track {
-  gap: 24px;
-  padding: 0 60px !important;
 }
 
 .carousel__item {

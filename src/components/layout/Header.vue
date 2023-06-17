@@ -16,13 +16,7 @@
 
       <!-- social networks -->
       <div class="inline-flex-center gap-5">
-        <ul class="social-networks inline-flex-center gap-2">
-          <li v-for="(item, index) in socials" :key="index" class="social-networks__item">
-            <a class="social-networks__item-link inline-flex-center-center" href="">
-              <icon-base :name="item.icon" />
-            </a>
-          </li>
-        </ul>
+        <social-networks />
         <icon-base class="cursor-pointer" name="widget" />
       </div>
     </div>
@@ -31,10 +25,12 @@
 
 <script>
 import IconBase from '@/components/common/IconBase.vue'
+import SocialNetworks from '@/components/common/SocialNetworks.vue'
 
 export default {
   components: {
-    IconBase
+    IconBase,
+    SocialNetworks
   },
   data() {
     return {
@@ -52,32 +48,6 @@ export default {
           text: 'English'
         }
       ],
-      socials: [
-        {
-          icon: 'linkedin',
-          link: '#'
-        },
-        {
-          icon: 'facebook',
-          link: '#'
-        },
-        {
-          icon: 'instagram',
-          link: '#'
-        },
-        {
-          icon: 'youtube',
-          link: '#'
-        },
-        {
-          icon: 'twitter',
-          link: '#'
-        },
-        {
-          icon: 'telegram',
-          link: '#'
-        }
-      ]
     }
   }
 }
@@ -120,22 +90,6 @@ export default {
       height: 4px;
       border-radius: 50%;
       background: #fff;
-    }
-  }
-}
-
-// social-networks
-.social-networks {
-  list-style: none;
-  // social-networks__item-link
-  &__item-link {
-    width: 24px;
-    height: 24px;
-    background: rgba($color: #fff, $alpha: 0.25);
-    border-radius: 6px;
-    transition: all .2s ease-in-out;
-    &:hover{
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     }
   }
 }

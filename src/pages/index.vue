@@ -2,10 +2,10 @@
   <main class="main">
     <!-- MAIN -->
     <section class="main-slider">
-      <Carousel>
-        <Slide v-for="slide in 10" :key="slide">
+      <Carousel :autoplay="5000" :wrap-around="true" pause-autoplay-on-hover>
+        <Slide v-for="slide in 3" :key="slide">
           <div class="main-slider__item">
-            {{ slide }}
+            <img src="https://picsum.photos/1250/900" alt="" />
           </div>
         </Slide>
 
@@ -57,7 +57,7 @@
     <section class="py-10">
       <div class="container grid grid-cols-12 gap-6">
         <leader-speech class="col-span-5" />
-        <Questionnaire class="col-span-7" />
+        <Vote class="col-span-7" />
       </div>
     </section>
 
@@ -71,6 +71,7 @@
       />
     </section>
 
+    <!-- USEFULL LINKS -->
     <useful-links />
   </main>
 </template>
@@ -86,7 +87,7 @@ import InfoCard from '../components/card/InfoCard.vue'
 import LastNew from '../components/card/LastNew.vue'
 import Map from '../components/Map.vue'
 import RegionTab from '../components/RegionTab.vue'
-import Questionnaire from '../components/Questionnaire.vue'
+import Vote from '../components/Vote.vue'
 import DownloadApp from '../components/DownloadApp.vue'
 import UsefulLinks from '../components/common/UsefulLinks.vue'
 
@@ -102,7 +103,7 @@ export default defineComponent({
     LastNew,
     Map,
     RegionTab,
-    Questionnaire,
+    Vote,
     DownloadApp,
     UsefulLinks
   }
@@ -132,22 +133,29 @@ export default defineComponent({
 
 .main-slider {
   width: 100%;
-  min-height: 100vh;
-  // background: linear-gradient(180deg, rgba(47, 58, 65, 0.51) 0%, rgba (36, 46, 52, 0.24) 100%);
-  // &::before {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   background: linear-gradient(180deg, rgba(47, 58, 65, 0.51) 0%, rgba(36, 46, 52, 0.24) 100%);
-  //   z-index: 5;
-  // }
-
-  background: url('https://picsum.photos/3600/1280') center no-repeat;
+  background: linear-gradient(180deg, rgba(47, 58, 65, 0.51) 0%, rgba(36, 46, 52, 0.24) 100%);
+  // overflow: hidden;
 
   // main-slider__item
   &__item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba($color: #000000, $alpha: 0.3);
+      z-index: 1;
+    }
   }
 }
 
@@ -162,6 +170,31 @@ export default defineComponent({
     &:not(:last-child) {
       border-right: 1px solid #fff;
     }
+  }
+}
+</style>
+
+<style lang="scss">
+.main-slider .carousel {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  // carousel__viewport
+  &__viewport {
+    height: 100%;
+  }
+  // carousel__pagination
+  &__pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  // carousel__prev, carousel__next
+  &__prev,
+  &__next {
+    display: none;
   }
 }
 </style>
