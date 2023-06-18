@@ -10,9 +10,9 @@
 
     <div class="vote-body px-8 py-6">
       <!-- Questions form -->
-      <form v-if="true">
+      <form v-if="!isVote">
         <label v-for="item in 5" :key="item" class="label flex-center gap-4" :for="item">
-          <input type="radio" name="vote" :id="item" :value="item" />
+          <input @change="isVote = true" type="radio" name="vote" :id="item" :value="item" />
           <span class="label__mark"></span>
           <span>Ha, onlayn to‘layman</span>
         </label>
@@ -22,14 +22,8 @@
       <ul v-else class="vote-answer">
         <li v-for="item in 5" :key="item" class="vote-answer__item">
           <div class="progress">
-            <div
-              role="progressbar"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow="42"
-              class="progress__bar"
-              style="width: 42%"
-            ></div>
+            <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="42" class="progress__bar"
+              style="width: 42%"></div>
           </div>
           <span>Lorem ipsum dolor sit amet consectetur - 42%</span>
         </li>
@@ -42,7 +36,14 @@
 </template>
 
 <script>
-export default {}
+import { defineComponent } from 'vue'
+export default defineComponent({
+  data() {
+    return {
+      isVote: false
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
@@ -70,6 +71,7 @@ export default {}
 
   // vote-answer
   &-answer {
+
     // vote-answer__item
     &__item {
       background: #506585;
@@ -78,9 +80,11 @@ export default {}
       position: relative;
       padding: 0 12px;
       overflow: hidden;
+
       &:not(:last-child) {
         margin-bottom: 6px;
       }
+
       span {
         line-height: 28px;
         // padding-left: 12px;
@@ -99,6 +103,7 @@ export default {}
   right: 0;
   bottom: 0;
   background-color: transparent;
+
   // progress__bar
   &__bar {
     height: 100%;
@@ -139,7 +144,7 @@ export default {}
     left: 0;
     display: none;
 
-    &:checked + .label__mark::before {
+    &:checked+.label__mark::before {
       opacity: 1;
     }
   }

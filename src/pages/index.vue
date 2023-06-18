@@ -2,6 +2,12 @@
   <main class="main">
     <!-- MAIN -->
     <section class="main-slider">
+      <div class="logo">
+        <icon-base name="nav_drop" />
+        <h1>O‘ZSUVTA’MINOT</h1>
+        <p>aksiyadorlik jamiyati</p>
+      </div>
+      
       <Carousel :autoplay="5000" :wrap-around="true" pause-autoplay-on-hover>
         <Slide v-for="slide in 3" :key="slide">
           <div class="main-slider__item">
@@ -14,6 +20,13 @@
           <Pagination />
         </template>
       </Carousel>
+
+      <ul class="inline-flex-center gap-1 absolute bottom-8 left-1/2 -translate-x-1/2 z-[5]">
+        <li v-for="item in 3" :key="item">
+          <icon-base name="slider_nav"/>
+          <icon-base name="active_slider_nav"/>
+        </li>
+      </ul>
     </section>
 
     <!-- STATISTICS OF APPEALS -->
@@ -33,7 +46,7 @@
           <h2 class="section-title__text">So‘nggi yangiliklar</h2>
         </div>
 
-        <div class="grid grid-cols-4 mt-[86px] py-4 border-y border-white">
+        <div class="grid grid-cols-4 mt-[86px] py-4 border-y-2 border-white">
           <div class="latest-news__item" v-for="item in 4" :key="item">
             <last-new />
           </div>
@@ -64,11 +77,8 @@
     <!-- DOWNLOAD APP -->
     <section class="relative py-[52px] mt-[108px] bg-[#305ab6b3]">
       <download-app />
-      <img
-        class="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 h-[399px]"
-        src="../static/img/vector_opacity.png"
-        alt=""
-      />
+      <img class="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 h-[399px]" src="../static/img/vector_opacity.png"
+        alt="" />
     </section>
 
     <!-- USEFULL LINKS -->
@@ -141,11 +151,13 @@ export default defineComponent({
     position: relative;
     width: 100%;
     height: 100%;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+
     &::before {
       content: '';
       position: absolute;
@@ -159,6 +171,28 @@ export default defineComponent({
   }
 }
 
+.logo {
+  position: absolute;
+  top: 203px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+
+  h1 {
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 14px;
+  }
+}
+
 .latest-news {
   background: url('https://uzsuv.uz/img/last-news-bg.jpg') no-repeat center;
   background-size: cover;
@@ -168,21 +202,28 @@ export default defineComponent({
     padding: 0 15px;
 
     &:not(:last-child) {
-      border-right: 1px solid #fff;
+      border-right: 2px solid hsla(0, 0%, 100%, .5);
     }
   }
 }
 </style>
 
 <style lang="scss">
+.logo .icon svg {
+  width: 52px;
+  height: 70px;
+}
+// Carousel
 .main-slider .carousel {
   width: 100%;
   height: 100vh;
   min-height: 100vh;
+
   // carousel__viewport
   &__viewport {
     height: 100%;
   }
+
   // carousel__pagination
   &__pagination {
     position: absolute;
@@ -191,6 +232,7 @@ export default defineComponent({
     transform: translateX(-50%);
     z-index: 2;
   }
+
   // carousel__prev, carousel__next
   &__prev,
   &__next {

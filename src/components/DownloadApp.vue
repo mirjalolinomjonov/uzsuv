@@ -14,12 +14,8 @@
       </div>
       <!-- app link -->
       <div class="flex-center gap-5">
-        <a
-          v-for="(item, index) in usApps"
-          :key="index"
-          :href="item.link"
-          class="app-link bg-white rounded-[4px] py-[6px] px-3 inline-flex-center gap-3 border border-white transition hover:bg-transparent"
-        >
+        <a v-for="(item, index) in usApps" :key="index" :href="item.link"
+          class="app-link bg-white rounded-[4px] py-[6px] px-3 inline-flex-center gap-3 border border-white transition hover:bg-transparent">
           <icon-base :name="item.logo" />
           <div class="inline-flex flex-col">
             <icon-base class="text" :name="item.text" />
@@ -31,11 +27,7 @@
     <!-- phone img -->
     <figure class="relative col-span-6 flex-center-center pointer-events-none">
       <img class="w-[230px] absolute" src="../static/img/phone1.webp" alt="" />
-      <img
-        class="w-[196px] absolute left-[62%] -top-[36%]"
-        src="../static/img/phone2.webp"
-        alt=""
-      />
+      <img class="w-[196px] absolute left-[62%] -top-[36%]" src="../static/img/phone2.webp" alt="" />
     </figure>
   </div>
 </template>
@@ -83,7 +75,7 @@ export default defineComponent({
   }
 
   &-link {
-    span{
+    span {
       transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -96,10 +88,12 @@ export default defineComponent({
 
 <style lang="scss">
 .app-link {
+
   .app-store path,
   .text svg path {
     transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   &:hover .app-store path,
   &:hover .text svg path {
     fill: #fff;
