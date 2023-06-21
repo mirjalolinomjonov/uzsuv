@@ -5,9 +5,10 @@
         <h2 class="text-[#25272B] text-2xl leading-[29px] font-semibold">Foydali havolalar</h2>
         <div class="inline-flex-center gap-4">
           <div class="inline-flex-center gap-2 text-[#5B7293] text-sm leading-[17px] font-normal">
-            1
+            {{ currentSlide + 1 }}
             <span class="inline-block h-[2.5px] w-8 bg-[#5B7293] opacity-40"></span>
             7
+            <!-- array length -->
           </div>
           <div class="inline-flex-center gap-2">
             <icon-base @click="prev" class="control-btn" name="circle_arrowe" />
@@ -17,13 +18,14 @@
       </div>
       <Carousel
         ref="usefulLink"
+        v-model="currentSlide"
         :wrapAround="true"
         :snapAlign="'start'"
         :items-to-show="5"
         :wrap-around="true"
         class="costum-carousel"
       >
-        <Slide v-for="slide in 10" :key="slide">
+        <Slide v-for="slide in 7" :key="slide">
           <div class="mx-[12px]">
             <div class="carousel__item">
               <icon-base name="emblem_of_uzb" />
@@ -54,6 +56,11 @@ export default defineComponent({
     IconBase,
     Carousel,
     Slide
+  },
+  data() {
+    return {
+      currentSlide: 0
+    }
   },
   methods: {
     prev() {
@@ -90,7 +97,7 @@ export default defineComponent({
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     cursor: grab;
   }
-  &:active{
+  &:active {
     cursor: grabbing;
   }
 }

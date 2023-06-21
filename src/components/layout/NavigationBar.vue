@@ -1,31 +1,36 @@
 <template>
-  <nav class="nav">
+  <nav class="nav" :class="{ home: hasHome }">
     <ul class="nav-list container flex-center-between">
       <div class="flex-center gap-6">
-        <icon-base class="cursor-pointer mr-2" name="nav_drop" />
-        <icon-base class="cursor-pointer" name="nav_grid" />
+        <router-link to="/">
+          <icon-base class="cursor-pointer mr-2" :name="hasHome ? 'nav_drop' : 'nav_drop_blue'" />
+        </router-link>
+        <icon-base class="cursor-pointer" name="nav_grid" :color="hasHome ? '#fff' : '#5B7293'" />
 
         <li class="nav-list__item" v-for="item in 6" :key="item">
-          <router-link
-            class="nav-list__item-link font-medium text-sm leading-[17px] uppercase text-white inline-block py-7" to="#">
-            jamiyat haqida
-          </router-link>
+          <router-link class="nav-list__item-link" to="#"> jamiyat haqida </router-link>
 
           <ul class="dropdown-list">
             <li class="dropdown-list__item">
-              <router-link class="dropdown-list__item-link" v-for="item in 5" :key="item" to="#">Lorem, ipsum
-                dolor.</router-link>
+              <router-link class="dropdown-list__item-link" v-for="item in 5" :key="item" to="#">
+                Lorem, ipsum dolor.
+              </router-link>
             </li>
           </ul>
         </li>
       </div>
-      <icon-base @click="hasShowSearchBar = !hasShowSearchBar" class="cursor-pointer"
-        :name="hasShowSearchBar ? 'close_x' : 'search'" />
+      <icon-base
+        @click="hasShowSearchBar = !hasShowSearchBar"
+        class="search-or-close cursor-pointer"
+        :name="hasShowSearchBar ? 'close_x' : 'search'"
+      />
     </ul>
+
+    <!-- search bar -->
     <div class="nav__search-bar grid place-content-center" :class="{ active: hasShowSearchBar }">
       <label>
         <input type="text" placeholder="Izlash..." />
-        <icon-base name="search" />
+        <icon-base name="search" color="#fff" />
       </label>
     </div>
   </nav>
@@ -41,6 +46,11 @@ export default {
     return {
       hasShowSearchBar: false
     }
+  },
+  computed: {
+    hasHome() {
+      return this.$route?.name === 'home'
+    }
   }
 }
 </script>
@@ -48,14 +58,14 @@ export default {
 <style lang="scss" scoped>
 .nav {
   position: relative;
-  background: rgba(255, 255, 255, 0.5);
+  background: #fff;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.5);
   backdrop-filter: blur(2px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
   z-index: 2;
 
   // nav-list
   &-list {
-
     &:hover &__item-link,
     &:hover .icon {
       opacity: 0.6;
@@ -79,7 +89,17 @@ export default {
 
       // nav-list__item-link
       &-link {
+        display: inline-block;
+        padding: 1.75rem 0;
+        color: #3e4d63;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        text-transform: uppercase;
         transition: color 0.2s ease-in-out;
+        &:hover {
+          color: #305ab6;
+        }
       }
     }
   }
@@ -169,4 +189,22 @@ export default {
       }
     }
   }
-}</style>
+
+  // active
+  &.home {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: none;
+    .nav-list {
+      &__item-link {
+        color: #fff;
+      }
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+.home .nav-list .search-or-close svg path {
+  fill: #fff !important;
+}
+</style>

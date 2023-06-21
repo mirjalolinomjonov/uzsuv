@@ -3,35 +3,46 @@
 </template>
 <script>
 /* eslint-disable vue/return-in-computed-property */
-import icons from "@/helpers/icons.js";
+import icons from '@/helpers/icons.js'
 export default {
   props: {
-    name: { type: String, default: "" },
+    name: { type: String, default: '' },
     color: {
       type: String,
-      default: "",
-    },
+      default: ''
+    }
   },
   computed: {
     src() {
       if (this.name) {
-        return icons[this.name];
+        return icons[this.name]
       }
-    },
-  },
-  mounted() {
-    if (this.color) {
-      this.$el?.firstElementChild?.querySelectorAll("path")?.forEach((item) => {
-        if ([...item.attributes].find((attr) => attr.localName === "stroke")) {
-          item.attributes.stroke.value = this.color;
-        }
-        if ([...item.attributes].find((attr) => attr.localName === "fill")) {
-          item.attributes.fill.value = this.color;
-        }
-      });
     }
   },
-};
+  watch: {
+    color(){
+      this.setColor()
+    }
+  },
+  mounted() {
+    this.setColor()
+  },
+  methods: {
+    setColor() {
+      if (this.color) {
+        console.log('oo yes color', this.color)
+        this.$el?.firstElementChild?.querySelectorAll('path')?.forEach((item) => {
+          if ([...item.attributes].find((attr) => attr.localName === 'stroke')) {
+            item.attributes.stroke.value = this.color
+          }
+          if ([...item.attributes].find((attr) => attr.localName === 'fill')) {
+            item.attributes.fill.value = this.color
+          }
+        })
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss">

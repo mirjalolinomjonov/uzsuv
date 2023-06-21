@@ -16,7 +16,7 @@
 
     <a
       href="#"
-      class="telegram flex-center-between mt-[46px] text-white text-[12px] font-medium leading-[15px] cursor-pointer"
+      class="telegram flex-center-between mt-[32px] text-white text-[12px] font-medium leading-[15px] cursor-pointer"
     >
       <div class="flex-center gap-2">
         <icon-base name="telegram_white" />
@@ -65,6 +65,7 @@ export default {
 
 <style lang="scss" scoped>
 .appeals {
+  height: 352px;
   background: #305ab6;
   border-radius: 4px;
   padding: 31px 32px;

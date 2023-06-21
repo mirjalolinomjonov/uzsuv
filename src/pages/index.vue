@@ -7,24 +7,32 @@
         <h1>O‘ZSUVTA’MINOT</h1>
         <p>aksiyadorlik jamiyati</p>
       </div>
-      
-      <Carousel :autoplay="5000" :wrap-around="true" pause-autoplay-on-hover>
+
+      <Carousel
+        v-model="currentSlide"
+        ref="mainCarousel"
+        :autoplay="5000"
+        :transition="1000"
+        :wrap-around="true"
+        pause-autoplay-on-hover
+      >
         <Slide v-for="slide in 3" :key="slide">
           <div class="main-slider__item">
             <img src="https://picsum.photos/1250/900" alt="" />
           </div>
         </Slide>
-
-        <template #addons>
-          <Navigation />
-          <Pagination />
-        </template>
       </Carousel>
 
-      <ul class="inline-flex-center gap-1 absolute bottom-8 left-1/2 -translate-x-1/2 z-[5]">
-        <li v-for="item in 3" :key="item">
-          <icon-base name="slider_nav"/>
-          <icon-base name="active_slider_nav"/>
+      <ul class="inline-flex-center-center absolute bottom-5 left-1/2 -translate-x-1/2 z-[5]">
+        <li
+          @click="handlerSlideTo(index)"
+          class="costum-dot cursor-pointer"
+          :class="{ active: currentSlide === index }"
+          v-for="(item, index) in 3"
+          :key="item"
+        >
+          <icon-base class="child-dot" name="slider_nav" />
+          <icon-base class="parent-dot" name="active_slider_nav" />
         </li>
       </ul>
     </section>
@@ -77,12 +85,13 @@
     <!-- DOWNLOAD APP -->
     <section class="relative py-[52px] mt-[108px] bg-[#305ab6b3]">
       <download-app />
-      <img class="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 h-[399px]" src="../static/img/vector_opacity.png"
-        alt="" />
+      <img
+        class="absolute left-0 top-1/2 -translate-y-1/2 opacity-10 h-[399px]"
+        src="../static/img/vector_opacity.png"
+        alt=""
+      />
     </section>
 
-    <!-- USEFULL LINKS -->
-    <useful-links />
   </main>
 </template>
 
@@ -99,7 +108,6 @@ import Map from '../components/Map.vue'
 import RegionTab from '../components/RegionTab.vue'
 import Vote from '../components/Vote.vue'
 import DownloadApp from '../components/DownloadApp.vue'
-import UsefulLinks from '../components/common/UsefulLinks.vue'
 
 export default defineComponent({
   components: {
@@ -115,7 +123,16 @@ export default defineComponent({
     RegionTab,
     Vote,
     DownloadApp,
-    UsefulLinks
+  },
+  data() {
+    return {
+      currentSlide: 0
+    }
+  },
+  methods: {
+    handlerSlideTo(index) {
+      this.$refs.mainCarousel.slideTo(index)
+    }
   }
 })
 </script>
@@ -142,6 +159,7 @@ export default defineComponent({
 }
 
 .main-slider {
+  position: relative;
   width: 100%;
   background: linear-gradient(180deg, rgba(47, 58, 65, 0.51) 0%, rgba(36, 46, 52, 0.24) 100%);
   // overflow: hidden;
@@ -202,7 +220,7 @@ export default defineComponent({
     padding: 0 15px;
 
     &:not(:last-child) {
-      border-right: 2px solid hsla(0, 0%, 100%, .5);
+      border-right: 2px solid hsla(0, 0%, 100%, 0.5);
     }
   }
 }
@@ -224,19 +242,34 @@ export default defineComponent({
     height: 100%;
   }
 
-  // carousel__pagination
-  &__pagination {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-  }
-
   // carousel__prev, carousel__next
   &__prev,
   &__next {
     display: none;
+  }
+}
+
+// Carousel navigation
+.costum-dot {
+  position: relative;
+  line-height: 1;
+  .child-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    opacity: 0.5;
+    transition: opacity .25s ease-in-out;
+  }
+  .parent-dot {
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+  }
+  &.active .parent-dot,
+  &.active .child-dot {
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
   }
 }
 </style>

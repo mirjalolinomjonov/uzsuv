@@ -109,7 +109,7 @@ export default {
     .card__bg {
       width: 400px;
       height: 400px;
-      top: -64px;
+      top: -75px;
       right: -64px;
     }
   }

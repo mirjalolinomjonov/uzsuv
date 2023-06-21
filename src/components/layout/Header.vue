@@ -1,7 +1,7 @@
 <template>
-  <header class="relative z-[2]">
+  <header class="relative z-[3]">
     <Widget />
-    <div class="header">
+    <div class="header" :class="{ home: hasHome }">
       <div class="container flex-center-between">
         <div class="inline-flex-center gap-3">
           <div class="header__lang inline-flex items-center gap-2">
@@ -11,7 +11,12 @@
 
             <!-- Lang menu -->
             <ul class="lang-menu">
-              <li @click="changeLang(item)" v-for="(item, index) in language" :key="index" class="lang-menu__item">
+              <li
+                @click="changeLang(item)"
+                v-for="(item, index) in language"
+                :key="index"
+                class="lang-menu__item"
+              >
                 <icon-base :name="item.flag" />
                 {{ item.text }}
               </li>
@@ -28,7 +33,11 @@
         <div class="inline-flex-center gap-5">
           <social-networks />
           <el-tooltip :content="$t('widget')" placement="bottom" effect="dark">
-            <icon-base @click="handlerWidget" class="cursor-pointer" :name="!showWidget ? 'widget' : 'close_widget'" />
+            <icon-base
+              @click="handlerWidget"
+              class="cursor-pointer"
+              :name="!showWidget ? 'widget' : 'close_widget'"
+            />
           </el-tooltip>
         </div>
       </div>
@@ -40,7 +49,6 @@
 import IconBase from '@/components/common/IconBase.vue'
 import SocialNetworks from '@/components/common/SocialNetworks.vue'
 import Widget from '@/components/tools/Widget.vue'
-
 
 export default {
   components: {
@@ -56,27 +64,32 @@ export default {
           key: 'uz',
           flag: 'uz_flag',
           text: 'O‘zbekcha',
-          short: 'Uzb',
+          short: 'Uzb'
         },
         {
           key: 'ru',
           flag: 'ru_flag',
           text: 'Русский',
-          short: 'Рус',
+          short: 'Рус'
         },
         {
           key: 'en',
           flag: 'en_flag',
           text: 'English',
-          short: 'Eng',
+          short: 'Eng'
         }
       ],
       curentLang: {
         key: 'uz',
         flag: 'uz_flag',
         text: 'O‘zbekcha',
-        short: 'Uzb',
-      },
+        short: 'Uzb'
+      }
+    }
+  },
+  computed: {
+    hasHome() {
+      return this.$route.name === 'home'
     }
   },
   methods: {
@@ -87,19 +100,18 @@ export default {
       this.showWidget = !this.showWidget
       const widget = document.querySelector('#widget')
       if (widget.style.maxHeight) {
-        widget.style.maxHeight = null;
+        widget.style.maxHeight = null
       } else {
-        widget.style.maxHeight = widget.scrollHeight + "px";
+        widget.style.maxHeight = widget.scrollHeight + 'px'
       }
     }
-  },
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .header {
-  background: rgba(36, 46, 52, 0.64);
-  backdrop-filter: blur(4px);
+  background: #305ab6;
   padding: 8px 0;
 
   // header__lang
@@ -117,16 +129,15 @@ export default {
     cursor: pointer;
 
     .arrowe {
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
     }
-
 
     &:hover {
       .lang-menu {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
-        z-index: 2;
+        z-index: 1;
       }
 
       .arrowe {
@@ -151,7 +162,6 @@ export default {
       visibility: hidden;
       z-index: -1;
 
-
       // lang-menu__item
       &__item {
         display: flex;
@@ -160,7 +170,7 @@ export default {
         font-weight: 500;
         font-size: 14px;
         line-height: 17px;
-        color: #FFFFFF;
+        color: #ffffff;
         padding: 6px 12px;
         text-transform: capitalize;
         transition: all 0.25s ease-in-out;
@@ -186,18 +196,23 @@ export default {
     font-size: 13px;
     line-height: 16px;
 
-    &>a {
+    & > a {
       cursor: pointer;
     }
 
     // dot seperate
-    &>a+span {
+    & > a + span {
       display: inline-block;
       width: 4px;
       height: 4px;
       border-radius: 50%;
       background: #fff;
     }
+  }
+
+  &.home {
+    background: rgba(36, 46, 52, 0.64);
+    backdrop-filter: blur(4px);
   }
 }
 </style>
