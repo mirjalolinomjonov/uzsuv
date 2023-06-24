@@ -30,7 +30,6 @@ export default {
   methods: {
     setColor() {
       if (this.color) {
-        console.log('oo yes color', this.color)
         this.$el?.firstElementChild?.querySelectorAll('path')?.forEach((item) => {
           if ([...item.attributes].find((attr) => attr.localName === 'stroke')) {
             item.attributes.stroke.value = this.color

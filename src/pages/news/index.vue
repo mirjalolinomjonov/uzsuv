@@ -1,20 +1,17 @@
 <template>
   <section>
-    <div class="container">
-      <bread-crumb/>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium excepturi atque ad, labore
-      impedit alias molestias nihil temporibus. Necessitatibus natus dolor debitis esse ut. Quisquam
-      aperiam culpa nisi molestiae sapiente.
+    <h1 class="page-title">Yangiliklar</h1>
+    <div class="grid grid-cols-9 gap-6">
+      <new-card class="col-span-3" v-for="item in 10" :key="item" />
     </div>
+    <Pagination :total="50"/>
   </section>
 </template>
 
 <script>
-import BreadCrumb from '../../components/common/BreadCrumb.vue'
+import Pagination from '@/components/common/Pagination.vue'
 export default {
-  components: {
-    BreadCrumb,
-  },
+  components: { Pagination }
 }
 </script>
 

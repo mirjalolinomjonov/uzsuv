@@ -1,6 +1,7 @@
 <template>
   <section class="pt-10 pb-8">
     <div class="container">
+      <!-- Header -->
       <div class="flex-center-between mb-6">
         <h2 class="text-[#25272B] text-2xl leading-[29px] font-semibold">Foydali havolalar</h2>
         <div class="inline-flex-center gap-4">
@@ -16,6 +17,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Carousel -->
       <Carousel
         ref="usefulLink"
         v-model="currentSlide"
@@ -31,9 +34,11 @@
               <icon-base name="emblem_of_uzb" />
               <a
                 href="#"
+                target="_blank"
                 class="block text-[#3C73E0] text-[15px] leading-[18px] font-medium mt-[13px] mb-4"
-                >president.uz</a
               >
+                president.uz
+              </a>
               <p class="text-[#5B7293] text-[15px] leading-[18px] font-medium">
                 O‘zbekiston respublikasi Prezidentining matbuot xizmati
               </p>

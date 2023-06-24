@@ -1,8 +1,17 @@
+import Layout from '@/layouts/allPages.vue'
+
 const announcements = [
   {
-    path: '/announcements',
-    name: 'announcements',
-    component: () => import('@/pages/announcements/index.vue')
+    path: '/',
+    name: 'allPagesLayout',
+    component: Layout,
+    children: [
+      {
+        path: 'announcements',
+        name: 'announcements',
+        component: () => import('@/pages/announcements/index.vue')
+      }
+    ]
   }
 ]
 
