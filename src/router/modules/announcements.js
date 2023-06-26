@@ -2,12 +2,12 @@ import Layout from '@/layouts/allPages.vue'
 
 const announcements = [
   {
-    path: '/',
-    name: 'allPagesLayout',
+    path: '',
+    // name: 'allPages',
     component: Layout,
     children: [
       {
-        path: 'announcements',
+        path: '/announcements',
         name: 'announcements',
         component: () => import('@/pages/announcements/index.vue')
       }

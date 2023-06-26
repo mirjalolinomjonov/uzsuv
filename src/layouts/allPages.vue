@@ -5,7 +5,7 @@
         <Menu />
       </aside>
       <section class="col-span-9">
-        <router-view />
+        <RouterView />
       </section>
     </div>
   </main>

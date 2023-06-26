@@ -1,15 +1,20 @@
 <template>
   <section>
-    <h1>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos voluptatem sunt nobis. Quisquam
-      non iure, harum saepe accusamus corporis odit dolorum explicabo. Doloribus aperiam illo eos ex
-      iure nisi fugit.
-    </h1>
+    <h1 class="page-title">E'lonlar</h1>
+
+    <Pagination :total="50" />
   </section>
 </template>
 
 <script>
-export default {}
+import { defineComponent } from 'vue'
+import Pagination from '@/components/common/Pagination.vue'
+
+export default defineComponent({
+  components: {
+    Pagination
+  }
+})
 </script>
 
 <style lang="scss" scoped></style>
