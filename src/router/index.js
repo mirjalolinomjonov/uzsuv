@@ -18,29 +18,16 @@ const routes = [
 /*
     Load all routes from modules folder
 */
-const modules = import.meta.glob('./modules/*.js',{ eager: true }) // { eager: true }
-
-// for (const path in modules) {
-//   if (Object.prototype.hasOwnProperty.call(modules, path)) {
-//     // console.log('modules',modules);
-//     modules[path]().then((module) => {
-//       const route = module.default;
-//       console.log('route',...route);
-//       routes.push(...route);
-//     });
-//   } else {
-//     console.log('nimadur xato');
-//   }
-// }
-
+const modules = import.meta.glob('./modules/*.js',{ eager: true })
 for (const [path, moduleImport] of Object.entries(modules)) {
   const route = moduleImport.default
   for (let i = 0; i < route.length; i++) {
-    routes.push(route[i])
-    // if (route[i] && route[i].name) {
-    // } else {
-    //   console.log('oops', route[i])
-    // }
+    if (route[i] && route[i].name) {
+      console.log(route[i].name);
+      routes.push(route[i])
+    } else {
+      console.log('oops', route[i])
+    }
   }
 }
 
@@ -49,5 +36,5 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [...routes]
 })
-// router.mode = 'html5'
+router.mode = 'html5'
 export default router

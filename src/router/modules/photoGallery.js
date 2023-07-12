@@ -2,8 +2,8 @@ import Layout from '@/layouts/allPages.vue'
 
 const photoGallery = [
   {
-    path: '',
-    // name: 'allPagesLayout',
+    path: '/',
+    name: 'photoGalleryParent',
     component: Layout,
     children: [
       {

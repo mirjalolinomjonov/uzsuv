@@ -29,7 +29,7 @@
     <!-- search bar -->
     <div class="nav__search-bar grid place-content-center" :class="{ active: hasShowSearchBar }">
       <label>
-        <input type="text" placeholder="Izlash..." />
+        <input @blur="hasShowSearchBar = false" type="text" placeholder="Izlash..." />
         <icon-base name="search" color="#fff" />
       </label>
     </div>

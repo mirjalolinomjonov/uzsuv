@@ -1,5 +1,5 @@
 <template>
-  <div class="container app grid grid-cols-12 gap-6">
+  <div class="container app grid grid-cols-12 gap-6  relative z-[1]">
     <div class="col-span-6">
       <h2 class="app__title">Mobil ilovamizni yuklab oling</h2>
       <div class="mt-[18px] mb-[66px]">

@@ -8,6 +8,7 @@
         <p>aksiyadorlik jamiyati</p>
       </div>
 
+      <!-- Main Carousel -->
       <Carousel
         v-model="currentSlide"
         ref="mainCarousel"
@@ -23,6 +24,7 @@
         </Slide>
       </Carousel>
 
+      <!-- Carousel Navigation -->
       <ul class="inline-flex-center-center absolute bottom-5 left-1/2 -translate-x-1/2 z-[5]">
         <li
           @click="handlerSlideTo(index)"
@@ -91,7 +93,6 @@
         alt=""
       />
     </section>
-
   </main>
 </template>
 
@@ -122,12 +123,15 @@ export default defineComponent({
     Map,
     RegionTab,
     Vote,
-    DownloadApp,
+    DownloadApp
   },
   data() {
     return {
       currentSlide: 0
     }
+  },
+  mounted() {
+    console.log('index router', this.$router)
   },
   methods: {
     handlerSlideTo(index) {
@@ -260,16 +264,16 @@ export default defineComponent({
     transform: translate(-50%, -50%);
     z-index: 5;
     opacity: 0.5;
-    transition: opacity .25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
   }
   .parent-dot {
     opacity: 0;
-    transition: opacity .25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
   }
   &.active .parent-dot,
   &.active .child-dot {
     opacity: 1;
-    transition: opacity .25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
   }
 }
 </style>

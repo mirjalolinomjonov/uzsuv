@@ -2,8 +2,8 @@ import Layout from '@/layouts/allPages.vue'
 
 const news = [
   {
-    path: '',
-    // name: 'allPagesLayout',
+    path: '/',
+    name: 'newsParent',
     component: Layout,
     children: [
       {
@@ -15,7 +15,7 @@ const news = [
         path: '/news/:slug',
         name: 'news-slug',
         component: () => import('@/pages/news/_slug.vue')
-      },
+      }
       // {
       //   fullPath: '/news',
       //   path: 'news',

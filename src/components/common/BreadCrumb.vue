@@ -65,6 +65,10 @@ export default defineComponent({
       line-height: 18px;
       color: #3e4d63;
       cursor: pointer;
+      transition: color .2s ease-in-out;
+      &:hover{
+        color: #3C73E0;
+      }
       &::first-letter {
         text-transform: uppercase;
       }
