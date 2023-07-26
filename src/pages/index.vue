@@ -130,9 +130,6 @@ export default defineComponent({
       currentSlide: 0
     }
   },
-  mounted() {
-    console.log('index router', this.$router)
-  },
   methods: {
     handlerSlideTo(index) {
       this.$refs.mainCarousel.slideTo(index)

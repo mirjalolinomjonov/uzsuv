@@ -66,14 +66,12 @@ export default {
   background: #f7f8fa;
   backdrop-filter: blur(8px);
   cursor: pointer;
-  .img-wrapper__status {
-    transition: all 0.2s linear;
-  }
+
   &:hover {
     box-shadow: 0px 12px 16px 0px rgba(111, 111, 111, 0.12);
 
     .img-wrapper__status {
-      transform: translateY(0);
+      transform: translateY(0%);
     }
   }
 
@@ -81,18 +79,19 @@ export default {
     position: relative;
     z-index: 0;
     overflow: hidden;
-
+    // img-wrapper__status
     &__status {
       position: absolute;
       bottom: 0;
       left: 0;
-      transform: translateY(100%);
       width: 100%;
       height: 32px;
+      transform: translateY(100%);
       padding: 8px 14px;
       z-index: 1;
       background: rgba(36, 46, 52, 0.64);
       backdrop-filter: blur(8px);
+      transition: transform 0.2s linear;
     }
   }
 }

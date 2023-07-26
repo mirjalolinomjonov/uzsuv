@@ -29,7 +29,12 @@
     <!-- search bar -->
     <div class="nav__search-bar grid place-content-center" :class="{ active: hasShowSearchBar }">
       <label>
-        <input @blur="hasShowSearchBar = false" type="text" placeholder="Izlash..." />
+        <input
+          ref="searchInput"
+          @blur="hasShowSearchBar = false"
+          type="text"
+          placeholder="Izlash..."
+        />
         <icon-base name="search" color="#fff" />
       </label>
     </div>
@@ -47,11 +52,20 @@ export default {
       hasShowSearchBar: false
     }
   },
+  watch: {
+    hasShowSearchBar(evt) {
+      if (evt) {
+        setTimeout(() => {
+          this.$refs.searchInput.focus()
+        }, 500)
+      }
+    }
+  },
   computed: {
     hasHome() {
       return this.$route?.name === 'home'
     }
-  }
+  },
 }
 </script>
 

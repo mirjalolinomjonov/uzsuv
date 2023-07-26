@@ -52,7 +52,7 @@
       <router-link to="#" class="hashtag"> #uzsuv </router-link>
     </div>
 
-    <div class="devider mt-4 mb-6"></div>
+    <div class="devider my-6"></div>
     <share />
   </section>
 </template>

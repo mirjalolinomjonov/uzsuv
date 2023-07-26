@@ -13,7 +13,7 @@ const announcements = [
       },
       {
         path: '/announcements/:slug',
-        name: 'announcements-slug',
+        name: 'announcementSlug',
         component: () => import('@/pages/announcements/_slug.vue')
       },
     ]

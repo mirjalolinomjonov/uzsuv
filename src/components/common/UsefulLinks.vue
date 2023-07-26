@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-10 pb-8">
+  <section class="pt-16 pb-8">
     <div class="container">
       <!-- Header -->
       <div class="flex-center-between mb-6">

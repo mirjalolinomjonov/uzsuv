@@ -33,7 +33,7 @@
       </div>
       <router-link
         :to="'/announcements/' + slug"
-        class="py-2 px-5 rounded-[4px] bg-[#5B7293] text-[#F6FBFF] text-xs leading-[14px] font-medium"
+        class="py-2 px-5 rounded-[4px] bg-[#5B7293] text-[#F6FBFF] text-xs leading-[14px] font-medium transition-all hover:bg-[#305AB6]"
       >
         Batafsil
       </router-link>

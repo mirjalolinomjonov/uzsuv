@@ -8,7 +8,7 @@
           </router-link>
           <div class="info mb-4 mt-[31px]">
             Saytni so‘nggi yangilangan vaqti:
-            <span class="info__time">22:12, 28.06.2020 (GMT+5)</span>
+            <span class="info__time">{{ siteLastUpdated }}</span>
           </div>
           <div class="info">
             Saytda xatolikni topdingizmi? Uni belgilang va
@@ -31,14 +31,14 @@
         <div class="col-span-3 flex flex-col gap-8">
           <div>
             <h4 class="title mb-2">Biz ijtimoiy tarmoqlarda</h4>
-            <social-networks/>
+            <social-networks />
           </div>
 
           <div>
             <h4 class="title mb-2">Hisoblagichlar</h4>
             <div class="flex-center gap-2">
-              <a href="#"><img src="@/static/img/calculate1.jpg" alt=""></a>
-              <a href="#"><img src="@/static/img/calculate2.jpg" alt=""></a>
+              <a href="#"><img src="@/static/img/calculate1.jpg" alt="" /></a>
+              <a href="#"><img src="@/static/img/calculate2.jpg" alt="" /></a>
             </div>
           </div>
 
@@ -56,7 +56,19 @@
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    siteLastUpdated() {
+      const date = new Date()
+      return `
+      ${date.getHours()}:${date.getMinutes()}, 
+      
+      ${date.getDate()}.${
+        date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
+      }.${date.getFullYear()} (GMT+5)`
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -125,18 +137,18 @@ export default {}
   }
 }
 
-.auth-logo{
+.auth-logo {
   // auth-logo__icon
   // auth-logo__name
-  &__name{
+  &__name {
     opacity: 0;
     transform: translateX(15px);
-    transition: all .25s ease-in-out;
+    transition: all 0.25s ease-in-out;
   }
 
-  &:hover{
-    .auth-logo__name{
-      opacity:1;
+  &:hover {
+    .auth-logo__name {
+      opacity: 1;
       transform: translateX(0);
     }
   }
