@@ -443,5 +443,28 @@ export default {
   table_link:`<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" clip-rule="evenodd" d="M9.33341 5.99984V4.6665H12.0001C13.841 4.6665 15.3334 6.15889 15.3334 7.99984C15.3334 9.84079 13.841 11.3332 12.0001 11.3332H9.33341V9.99984H12.0001C13.1047 9.99984 14.0001 9.10441 14.0001 7.99984C14.0001 6.89527 13.1047 5.99984 12.0001 5.99984H9.33341ZM6.66675 9.99984V11.3332H4.00008C2.15913 11.3332 0.666748 9.84079 0.666748 7.99984C0.666748 6.15889 2.15913 4.6665 4.00008 4.6665H6.66675V5.99984H4.00008C2.89551 5.99984 2.00008 6.89527 2.00008 7.99984C2.00008 9.10441 2.89551 9.99984 4.00008 9.99984H6.66675ZM4.66675 8.6665V7.33317H11.3334V8.6665H4.66675Z" fill="#5B7293"/>
   </svg>
+  `,
+  video_player:`<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g filter="url(#filter0_b_601_13665)">
+  <circle cx="28" cy="28" r="28" fill="white" fill-opacity="0.5"/>
+  </g>
+  <g filter="url(#filter1_b_601_13665)">
+  <path d="M43 28L20.5 15.0096V40.9904L43 28Z" fill="white"/>
+  </g>
+  <defs>
+  <filter id="filter0_b_601_13665" x="-10" y="-10" width="76" height="76" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+  <feGaussianBlur in="BackgroundImageFix" stdDeviation="5"/>
+  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_601_13665"/>
+  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_601_13665" result="shape"/>
+  </filter>
+  <filter id="filter1_b_601_13665" x="10.5" y="5.00952" width="42.5" height="45.981" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+  <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+  <feGaussianBlur in="BackgroundImageFix" stdDeviation="5"/>
+  <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_601_13665"/>
+  <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_601_13665" result="shape"/>
+  </filter>
+  </defs>
+  </svg>
   `
 }
