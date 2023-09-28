@@ -1,10 +1,10 @@
 <template>
   <main>
     <div class="container grid grid-cols-12 gap-6">
-      <aside class="col-span-3">
+      <aside class="col-span-3 md:col-span-12 md:order-2">
         <Menu />
       </aside>
-      <section class="col-span-9">
+      <section class="col-span-9 md:col-span-12">
         <RouterView />
       </section>
     </div>

@@ -10,7 +10,7 @@
           class="inline-flex items-center gap-[4px] text-white text-[13px] leading-4 font-normal"
         >
           <icon-base name="article_view" />
-          27 Iyul 2020
+          {{ numberWithSpaces(9752570) }}
         </span>
         <span
           class="inline-flex items-center gap-[4px] text-white text-[13px] leading-4 font-normal"
@@ -37,7 +37,7 @@
 
 <script>
 import IconBase from '../common/IconBase.vue'
-import { turncate, numberWithSpaces } from '@/utiles/index.js'
+import { turncate, numberWithSpaces } from '@/helpers/global.js'
 export default {
   components: {
     IconBase

@@ -93,6 +93,9 @@
         alt=""
       />
     </section>
+
+    <useful-links />
+    <Footer />
   </main>
 </template>
 
@@ -109,6 +112,8 @@ import Map from '../components/Map.vue'
 import RegionTab from '../components/RegionTab.vue'
 import Vote from '../components/Vote.vue'
 import DownloadApp from '../components/DownloadApp.vue'
+import UsefulLinks from '@/components/common/UsefulLinks.vue'
+import Footer from '@/components/layout/Footer.vue'
 
 export default defineComponent({
   components: {
@@ -123,7 +128,9 @@ export default defineComponent({
     Map,
     RegionTab,
     Vote,
-    DownloadApp
+    DownloadApp,
+    UsefulLinks,
+    Footer
   },
   data() {
     return {
@@ -213,7 +220,7 @@ export default defineComponent({
 }
 
 .latest-news {
-  background: url('https://uzsuv.uz/img/last-news-bg.jpg') no-repeat center;
+  background: url('@/static/img/last-news-bg.jpg') no-repeat center;
   background-size: cover;
 
   // latest-news__item

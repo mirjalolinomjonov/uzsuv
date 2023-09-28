@@ -1,15 +1,16 @@
 <template>
   <header class="relative z-[3]">
-    <Widget />
+    <!-- <Widget /> -->
     <div class="header" :class="{ home: hasHome }">
       <div class="container flex-center-between">
         <div class="inline-flex-center gap-3">
+          <!-- LANGUAGE BOX -->
           <div class="header__lang inline-flex items-center gap-2">
             <icon-base :name="curentLang.flag" />
             <span> {{ curentLang.short }} </span>
             <icon-base class="arrowe" name="select_arrowe" />
 
-            <!-- Lang menu -->
+            <!-- Lang menu dropdown -->
             <ul class="lang-menu">
               <li
                 @click="changeLang(item)"
@@ -22,20 +23,23 @@
               </li>
             </ul>
           </div>
+
+          <!-- CALL CENTER -->
           <div class="header__call-center inline-flex items-center gap-2">
-            <a href="tel:+998712343920">+998 (71) 234 39 20</a>
+            <a href="tel:1250">1250</a>
+            <!-- dot seperate -->
             <span></span>
-            <span>O‘zbekiston hududida qo‘ng‘iroq bepul</span>
+            <span class="sm:hidden">Yagona call-markaz</span>
           </div>
         </div>
 
-        <!-- social networks -->
+        <!-- SOCIAL NETWORKS -->
         <div class="inline-flex-center gap-5">
           <social-networks />
           <el-tooltip :content="$t('widget')" placement="bottom" effect="dark">
             <icon-base
               @click="handlerWidget"
-              class="cursor-pointer"
+              class="cursor-pointer shrink-0"
               :name="!showWidget ? 'widget' : 'close_widget'"
             />
           </el-tooltip>
@@ -198,6 +202,8 @@ export default {
 
     & > a {
       cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
     }
 
     // dot seperate
@@ -207,6 +213,9 @@ export default {
       height: 4px;
       border-radius: 50%;
       background: #fff;
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
     }
   }
 

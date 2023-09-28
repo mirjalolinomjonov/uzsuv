@@ -21,11 +21,9 @@
       <!-- Carousel -->
       <Carousel
         ref="usefulLink"
+        v-bind="settings"
+        :breakpoints="breakpoints"
         v-model="currentSlide"
-        :wrapAround="true"
-        :snapAlign="'start'"
-        :items-to-show="5"
-        :wrap-around="true"
         class="costum-carousel"
       >
         <Slide v-for="slide in 7" :key="slide">
@@ -64,7 +62,34 @@ export default defineComponent({
   },
   data() {
     return {
-      currentSlide: 0
+      currentSlide: 0,
+      settings: {
+        wrapAround: 'true',
+        snapAlign: 'center',
+        itemsToShow: 1,
+        wrapAround: 'true'
+      },
+      breakpoints: {
+        475: {
+          itemsToShow: 2,
+          snapAlign: 'center'
+        },
+        // 768px and up
+        768: {
+          itemsToShow: 3,
+          snapAlign: 'center'
+        },
+        // 1024 and up
+        1024: {
+          itemsToShow: 4,
+          snapAlign: 'start'
+        },
+        // 1280 and up
+        1280: {
+          itemsToShow: 5,
+          snapAlign: 'start'
+        }
+      }
     }
   },
   methods: {

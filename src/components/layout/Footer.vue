@@ -2,7 +2,7 @@
   <footer class="footer pt-8 pb-10">
     <div class="container">
       <div class="grid grid-cols-12 gap-4">
-        <div class="col-span-3">
+        <div class="col-span-3 lg:col-span-6 sm:col-start-1 sm:col-end-13">
           <router-link to="/">
             <icon-base name="footer_logo" />
           </router-link>
@@ -17,7 +17,7 @@
           </div>
         </div>
 
-        <div class="flex gap-20 col-start-5 col-end-10">
+        <div class="col-start-5 col-end-10 lg:hidden flex gap-20">
           <nav class="nav" v-for="item in 2" :key="item">
             <h3 class="nav__title">Bo‘limlar</h3>
             <ul class="nav-list flex flex-col gap-4">
@@ -28,7 +28,7 @@
           </nav>
         </div>
 
-        <div class="col-span-3 flex flex-col gap-8">
+        <div class="col-span-3 lg:col-start-8 lg:col-end-13 lg:order-2 sm:col-start-1 sm:col-end-13 flex flex-col gap-8">
           <div>
             <h4 class="title mb-2">Biz ijtimoiy tarmoqlarda</h4>
             <social-networks />

@@ -1,8 +1,8 @@
 <template>
   <section>
     <h1 class="page-title">Fotogalereya</h1>
-    <div class="grid grid-cols-9 gap-6">
-      <photo-gallery class="col-span-3" v-for="item in 9" :key="item" />
+    <div class="grid grid-cols-9 gap-6 lg:grid-cols-4">
+      <photo-gallery class="col-span-3 lg:col-span-2 sm:col-span-4" v-for="item in 9" :key="item" />
     </div>
     <pagination :total="50" />
   </section>

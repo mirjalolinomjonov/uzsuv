@@ -44,7 +44,7 @@
 <!-- !news slug bn posts slug birhil com chiqarish kk. faqat news slug un slot tshlab ketish kk hasjtag bn img ga -->
 
 <script>
-import { formatNum } from '@/utiles/index.js'
+import { formatNum } from '@/helpers/global.js'
 export default {
   name: 'AdCard',
   props: {

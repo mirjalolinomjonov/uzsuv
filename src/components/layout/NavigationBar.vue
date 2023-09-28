@@ -1,13 +1,13 @@
 <template>
-  <nav class="nav" :class="{ home: hasHome }">
+  <nav class="nav md:py-2" :class="{ home: hasHome }">
     <ul class="nav-list container flex-center-between">
       <div class="flex-center gap-6">
-        <router-link to="/">
+        <router-link to="/" class="leading-[0]">
           <icon-base class="cursor-pointer mr-2" :name="hasHome ? 'nav_drop' : 'nav_drop_blue'" />
         </router-link>
         <icon-base class="cursor-pointer" name="nav_grid" :color="hasHome ? '#fff' : '#5B7293'" />
 
-        <li class="nav-list__item" v-for="item in 6" :key="item">
+        <li class="nav-list__item lg:hidden" v-for="item in 6" :key="item">
           <router-link class="nav-list__item-link" to="#"> jamiyat haqida </router-link>
 
           <ul class="dropdown-list">
@@ -65,7 +65,7 @@ export default {
     hasHome() {
       return this.$route?.name === 'home'
     }
-  },
+  }
 }
 </script>
 
@@ -181,6 +181,18 @@ export default {
       background: rgba(255, 255, 255, 0.08);
       border-radius: 4px;
       overflow: hidden;
+      @media only screen and (max-width: 768px) {
+        width: 600px;
+      }
+      @media only screen and (max-width: 640px) {
+        width: 500px;
+      }
+      @media only screen and (max-width: 425px) {
+        width: 300px;
+      }
+      @media only screen and (max-width: 320px) {
+        width: 250px;
+      }
 
       input {
         width: 100%;

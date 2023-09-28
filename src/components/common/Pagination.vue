@@ -1,5 +1,5 @@
 <template>
-  <div v-if="total > 1" class="example-pagination-block flex justify-end mt-8 mb-6">
+  <div v-if="total > 1" class="example-pagination-block flex justify-end mt-8">
     <el-pagination
       v-model:currentPage="currentPage"
       :default-page-size="1"
