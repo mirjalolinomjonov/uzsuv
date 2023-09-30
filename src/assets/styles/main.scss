@@ -13,7 +13,8 @@ body {
 }
 
 button,
-input {
+input,
+textarea {
   outline: none;
 }
 
@@ -73,7 +74,7 @@ ul {
       text-align: center;
     }
 
-    &.is-left .cell{
+    &.is-left .cell {
       text-align: left;
     }
   }
