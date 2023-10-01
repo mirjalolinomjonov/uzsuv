@@ -94,6 +94,12 @@ ul {
         font-weight: 400;
         line-height: 140%; /* 19.6px */
       }
+      &.is-left .cell {
+        text-align: left;
+      }
+      &.is-right .cell {
+        text-align: right;
+      }
     }
   }
 }
@@ -109,4 +115,40 @@ ul {
   display: inline-flex;
   gap: 6px;
   cursor: pointer;
+}
+
+.costum-radio {
+  position: relative;
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    &:checked + .costum-radio__item {
+      color: #fff;
+      background: #3e4d63;
+    }
+  }
+  // costum-radio__item
+  &__item {
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    padding: 8px 32px;
+    color: #5b7293;
+    background: #f7f8fa;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: #fff;
+      background: #5b7293;
+    }
+  }
+  &:first-child &__item {
+    border-radius: 4px 0 0 4px;
+  }
+  &:last-child &__item {
+    border-radius: 0 4px 4px 0;
+  }
 }

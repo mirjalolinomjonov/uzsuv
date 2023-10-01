@@ -33,12 +33,30 @@
           <form @submit.prevent="onSubmit" autocomplete="off">
             <div class="flex-center gap-6 mb-6">
               <input class="form__item" type="text" name="fulname" placeholder="FISH" />
-              <input class="form__item" type="text" name="phone" placeholder="+998 99 936 30 98" />
+              <input
+                v-maska
+                data-maska="+998 ## ### ## ##"
+                class="form__item"
+                type="text"
+                name="phone"
+                placeholder="+998 99 936 30 98"
+              />
             </div>
-            <textarea class="form__item form__item_height" name="message" placeholder="Xabaringiz">
+            <input
+              class="form__item mb-6"
+              type="email"
+              name="email"
+              placeholder="example@mail.com"
+            />
+            <textarea
+              class="form__item form__item_height mb-6"
+              name="message"
+              placeholder="Xabaringiz"
+            >
             </textarea>
-
-            <button class="form__submit">Yuborish</button>
+            <button :disabled="true" :class="[false ? 'active' : '', 'form__submit']">
+              Yuborish
+            </button>
           </form>
         </div>
       </div>
@@ -50,10 +68,13 @@
 </template>
 
 <script>
+import { vMaska } from 'maska'
+
 import UsefulLinks from '@/components/common/UsefulLinks.vue'
 import Footer from '@/components/layout/Footer.vue'
 
 export default {
+  directives: { maska: vMaska },
   components: { UsefulLinks, Footer },
   data() {
     return {
@@ -123,6 +144,10 @@ export default {
     font-size: 14px;
     font-weight: 400;
     line-height: normal;
+    transition: all 0.2s ease-in-out;
+    &:focus {
+      border-color: #95acdac8;
+    }
     &::placeholder {
       opacity: 0.5;
     }
@@ -140,7 +165,15 @@ export default {
     text-align: center;
     font-size: 14px;
     font-weight: 600;
-    cursor: pointer;
+    cursor: not-allowed;
+    transition: opacity 0.2s ease-in-out;
+    &:hover {
+      opacity: 0.7;
+    }
+    &.active {
+      cursor: pointer;
+      background: #3c73e0;
+    }
   }
 }
 </style>

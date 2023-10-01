@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "element-plus": "^2.3.6",
+    "maska": "^2.1.10",
     "vue": "^3.3.2",
     "vue-i18n": "9",
     "vue-router": "^4.2.0",
