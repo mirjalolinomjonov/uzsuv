@@ -9,9 +9,11 @@
       </section>
     </div>
 
-    <other-news v-if="getSlugRouter" />
-    <useful-links v-else />
-    <Footer />
+    <div v-if="!hidden">
+      <other-news v-if="getSlugRouter" />
+      <useful-links v-else />
+    </div>
+    <Footer :class="{ 'mt-8': hidden }" />
   </main>
 </template>
 
@@ -26,7 +28,11 @@ import Footer from '@/components/layout/Footer.vue'
 /* DATA */
 const route = useRoute()
 const getSlugRouter = computed(() => {
-  return route.name !== 'announcementSlug' && route.params.slug ? true : false
+  return route.params.slug ? true : false
+})
+
+const hidden = computed(() => {
+  return route.name === 'announcementSlug' || route.name === 'pollsSlug'
 })
 </script>
 
