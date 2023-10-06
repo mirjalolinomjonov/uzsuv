@@ -1,7 +1,7 @@
 <template>
   <Header />
   <navigation-bar/>
-  <bread-crumb v-if="$route.name !== 'home'" />
+  <bread-crumb v-if="$route.name !== 'home' && $route.name !=='notFound'" />
   <div :class="[$route.name === 'home' ? 'absolute top-0 left-0 w-full' : '']">
     <RouterView />
   </div>
